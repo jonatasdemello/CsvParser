@@ -37,6 +37,8 @@ namespace CsvParser.Test.Unit
             Assert.IsFalse(result);
         }
 
+
+
         [TestMethod]
         public void IsCsvFileTest()
         {
@@ -44,6 +46,7 @@ namespace CsvParser.Test.Unit
             const string invalidFileName = "invalid_csv_filename.bmp";
 
             var validationService = new ValidationService();
+
             Assert.IsTrue(validationService.IsCsvFile(validFileName));
             Assert.IsFalse(validationService.IsCsvFile(invalidFileName));
         }

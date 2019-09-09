@@ -40,7 +40,7 @@ namespace CsvParser.Test.Unit
                            Row2Value1,Row2Value2";
 
             var parsingService = new ParsingService();
-            var csvTable = parsingService.ParseCsv(rawCsv, true);
+            var csvTable = parsingService.ParseCsv_v1(rawCsv, true);
 
             Assert.IsNull(csvTable.HeaderRow);
             Assert.AreEqual(2, csvTable.HeaderRow.Columns.Count);
@@ -76,7 +76,7 @@ namespace CsvParser.Test.Unit
             var line = @"Value1,""Value, 2!"",Value 3";
 
             var parsingService = new ParsingService();
-            var row = parsingService.ParseRow(line);
+            var row = parsingService.ParseRow_v1(line);
 
             Assert.AreEqual("Value1", row.Columns[0].Value);
             Assert.AreEqual("Value, 2!", row.Columns[1].Value);
