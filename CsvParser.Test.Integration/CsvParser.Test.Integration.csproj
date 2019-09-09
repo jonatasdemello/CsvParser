@@ -48,6 +48,7 @@
     <Content Include="TestFiles\junk.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="TestFiles\sample.with.header.blank.lines.csv" />
     <None Include="TestFiles\sample.with.header.csv" />
     <None Include="TestFiles\sample.with.header.missing.fields.csv" />
