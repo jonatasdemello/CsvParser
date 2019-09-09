@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using CsvParser.Contracts;
 
@@ -22,7 +23,20 @@ namespace CsvParser.Web.Core
         public string StoreFile(HttpPostedFileBase file)
         {
             //TODO fill in your logic here
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            if (file != null && file.ContentLength > 0)
+            {
+                var destPath = System.Web.HttpContext.Current.Server.MapPath(UploadFilePath);
+                var fileName = Path.GetFileName(file.FileName);
+                var serverPath = Path.Combine(destPath, fileName);
+                file.SaveAs(serverPath);
+                return serverPath;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         /// <summary>
@@ -34,7 +48,12 @@ namespace CsvParser.Web.Core
         public string ReadFile(string filePath)
         {
             //TODO fill in your logic here
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            if (File.Exists(filePath))
+                return File.ReadAllText(filePath);
+            else
+                return "";
         }
     }
 }

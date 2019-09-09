@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using CsvParser.Contracts;
 
 namespace CsvParser.Web.Core
@@ -16,7 +17,12 @@ namespace CsvParser.Web.Core
         public bool IsCsvFile(string filename)
         {
             //TODO fill in your logic here
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            return filename != null ? String.Equals(Path.GetExtension(filename), ".csv", StringComparison.OrdinalIgnoreCase) : false;
+
+            // or
+            // return String.IsNullOrEmpty(filename) ? false : filename.ToLower().Contains(".csv");
         }
     }
 }
