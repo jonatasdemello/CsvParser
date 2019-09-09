@@ -1,10 +1,13 @@
-﻿namespace CsvParser.Test.Integration
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace CsvParser.Test.Integration
 {
     /// <summary>
     /// Bonus Task:
     /// We've provided a few testing files. Integration test the csv file handler using these files.
     /// Feel free to use any testing framework you desire. (i.e. NUnit, XUnit, Microsoft built-in testing framework)
     /// </summary>
+    [TestClass]
     public class CsvFileHandlerTest
     {
         private const string JunkFileName = "junk.txt";

@@ -20,5 +20,10 @@ namespace CsvParser.Web.Core
             //TODO fill in your logic here
             throw new NotImplementedException();
         }
+
+        public CsvRow ParseRow(string line)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
