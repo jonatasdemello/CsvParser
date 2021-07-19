@@ -7,7 +7,7 @@ namespace CsvParser.Domain
     {
         public CsvRow HeaderRow { get; set; }
         public List<CsvRow> Rows { get; set; }
-        
+
         public CsvTable()
         {
             Rows = new List<CsvRow>();

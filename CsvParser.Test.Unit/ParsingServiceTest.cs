@@ -4,10 +4,10 @@ using CsvParser.Web.Core;
 namespace CsvParser.Test.Unit
 {
     /// <summary>
-    /// This class should have content. 
+    /// This class should have content.
     /// Feel free to use any testing framework you desire. (i.e. NUnit, XUnit, Microsoft built-in testing framework)
     /// You may also use a mocking framework (i.e. Moq, RhinoMock)
-    /// 
+    ///
     /// If you've never done unit testing before, don't worry about this section and look to complete some of the bonus mark tasks
     /// </summary>
     [TestClass]
@@ -28,9 +28,6 @@ namespace CsvParser.Test.Unit
             var s = p.ParseCsv("Id,Name\r\n1,Art\r\n2,Language\r\n3,Math\r\n4,Gym\r\n5,Science\r\n", true);
             Assert.IsFalse(s == null);
         }
-
-
-
 
         [TestMethod]
         public void ParseCsvHeaderedTest()

@@ -11,9 +11,9 @@ namespace CsvParser.Web.Controllers
     /// This file does not need to be unit tested. You shouldn't need to modify this.
     /// Bonus Task:
     /// Use your favourite dependency injection framework (i.e. Autofac, Ninject) to inject all the services.
-    /// This project uses MVC5 so make sure you grab the right implementation. 
+    /// This project uses MVC5 so make sure you grab the right implementation.
     /// Bonus Task:
-    /// Validate the input to the post function on the client side. You can use javascript or Razor syntax, 
+    /// Validate the input to the post function on the client side. You can use javascript or Razor syntax,
     ///  but don't use any 3rd party code for this.
     /// </summary>
     public class HomeController : Controller
@@ -28,6 +28,7 @@ namespace CsvParser.Web.Controllers
         }
 
         #region [ GETs ]
+
         public ActionResult Index()
         {
             return View();
@@ -35,12 +36,14 @@ namespace CsvParser.Web.Controllers
 
         public ActionResult Error(string errorMessage)
         {
-            var model = new ErrorModel { ErrorMessage = errorMessage};
+            var model = new ErrorModel { ErrorMessage = errorMessage };
             return View(model);
         }
-        #endregion
+
+        #endregion [ GETs ]
 
         #region [ POSTs ]
+
         [HttpPost]
         public ActionResult Index(FileUploadModel fileUploadModel)
         {
@@ -50,7 +53,7 @@ namespace CsvParser.Web.Controllers
             var result = _csvFileHandler.ParseCsvFile(fileUploadModel.File, fileUploadModel.ContainsHeader);
             if (!result.Success)
                 return HandleError(result.ErrorMessage);
-            
+
             return View("FormattedDisplay", new FormattedDisplayModel
             {
                 OriginalFileName = fileUploadModel.File.FileName,
@@ -58,14 +61,16 @@ namespace CsvParser.Web.Controllers
             });
         }
 
-        #endregion
+        #endregion [ POSTs ]
 
         #region [ Helpers ]
+
         private ActionResult HandleError(string errorMessage)
         {
             _logger.Error(errorMessage);
-            return RedirectToAction("Error", new {errorMessage});
+            return RedirectToAction("Error", new { errorMessage });
         }
-        #endregion
+
+        #endregion [ Helpers ]
     }
 }

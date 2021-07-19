@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace CsvParser.Test.Unit
 {
     /// <summary>
-    /// This class should have content. 
+    /// This class should have content.
     /// Feel free to use any testing framework you desire. (i.e. NUnit, XUnit, Microsoft built-in testing framework)
     /// You may also use a mocking framework (i.e. Moq, RhinoMock)
-    /// 
+    ///
     /// If you've never done unit testing before, don't worry about this section and look to complete some of the bonus mark tasks
     /// </summary>
     [TestClass]
@@ -36,8 +36,6 @@ namespace CsvParser.Test.Unit
             var result = v.IsCsvFile("myFile");
             Assert.IsFalse(result);
         }
-
-
 
         [TestMethod]
         public void IsCsvFileTest()
