@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using CsvParser.Web.App_Start;
 using log4net.Config;
 
 namespace CsvParser.Web
@@ -11,6 +12,7 @@ namespace CsvParser.Web
         protected void Application_Start()
         {
             InitLog4Net();
+            DependencyConfig.Register();
 
             AreaRegistration.RegisterAllAreas();
 
@@ -20,7 +22,8 @@ namespace CsvParser.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        private static void InitLog4Net() {
+        private static void InitLog4Net()
+        {
             XmlConfigurator.Configure();
         }
     }

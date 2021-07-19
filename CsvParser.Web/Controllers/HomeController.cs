@@ -21,10 +21,14 @@ namespace CsvParser.Web.Controllers
         private readonly ICsvFileHandler _csvFileHandler;
         private readonly ILog _logger;
 
-        public HomeController()
+        public HomeController(ICsvFileHandler csvFileHandler, ILog logger)
         {
-            _csvFileHandler = new CsvFileHandler(new ParsingService(), new ValidationService(), new FileService());
-            _logger = LogManager.GetLogger("MvcApplication");
+            //_csvFileHandler = new CsvFileHandler(new ParsingService(), new ValidationService(), new FileService());
+            //_logger = LogManager.GetLogger("MvcApplication");
+
+            // Using DI
+            _csvFileHandler = csvFileHandler;
+            _logger = logger;
         }
 
         #region [ GETs ]
